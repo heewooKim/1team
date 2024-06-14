@@ -4,7 +4,6 @@
 <br/>
 <br/>
 🧜‍♂️ Guidelines
-<hr>
 <br/>
 · 1 commit per day
 <br/>

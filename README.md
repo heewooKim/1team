@@ -4,7 +4,8 @@
 <br/>
 <br/>
 
-https://pin.it/5euRjXDzY
+![Uploading fa91b63a4ceff9770af9d06f0b30b153.gif…]()
+
 
  🧜‍♂️ Guidelines
  <br/>

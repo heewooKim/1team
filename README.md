@@ -4,8 +4,9 @@
 <br/>
 <br/>
 
-![Uploading fa91b63a4ceff9770af9d06f0b30b153.gif…]()
-
+<p align="center">
+<img src="https://github.com/heewooKim/1team/assets/57980857/1f76fa45-d243-4163-b335-cfb289f0a3fa">
+</p>
 
  🧜‍♂️ Guidelines
  <br/>

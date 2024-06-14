@@ -1,0 +1,51 @@
+### 람다식 (Lambda Expression)
+
+-   함수형 프로그래밍을 위해 익명 함수를 생성하기 위한 식
+-   형태 : (매개변수) -> { 실행문 }
+
+```
+// 하나의 매개변수만 존재할 경우 괄호 생략 가능
+// 런타임 시 대입되는 값에 따라 매개변수의 타입이 자동으로 인식될 수 있으므로 생략 가능
+a -> { System.out.println(a); }
+
+// 매개변수가 없을 경우 괄호 반드시 작성
+() -> { System.out.println("Hello World!"); }
+
+// 중괄호 안에 return문만 존재할 경우 중괄호와 return 생략 가능 
+(a, b) -> { return a + b; }
+(a, b) -> a + b
+```
+
+-   람다식은 함수형 인터페이스 변수에 대입된다.  
+    \- 람다식은 하나의 메소드를 정의하므로 두 개 이상의 추상 메소드가 선언된 인터페이스에는 적용할 수 없다.
+
+```
+interface NoneInterface {
+    void none();
+}
+
+interface PrintInterface {
+    void print(int x);
+}
+
+interface CalcInterface {
+    int add(int x, int y);
+}
+
+public class LambdaExpression {
+
+    public static void main(String[] args) {
+
+        NoneInterface noneInterface = () -> { System.out.println("Hello World!"); };
+        noneInterface.none();
+
+        PrintInterface printInterface = (int x) -> { System.out.println(x); };
+        printInterface.print(5);
+
+        CalcInterface calcInterface = (int x, int y) -> { return x + y; };
+        System.out.println(calcInterface.add(5, 5));
+
+    }
+
+}
+```

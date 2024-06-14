@@ -12,6 +12,6 @@
 
 🧜‍♂️ Guidelines
 <br/>
-&emsp;· 1 commit per day
+&emsp;&emsp;· 1 commit per day
 <br/>
-&emsp;· Make comments clear
+&emsp;&emsp;· Make comments clear

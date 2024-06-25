@@ -1,0 +1,169 @@
+## **Generics**
+
+-   클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법으로 객체 선언 시 다른 타입의 자료가 저장될 수 있다.
+-   컬렉션 클래스나 메소드에서 사용할 내부 데이터 타입을 파라미터로 넘겨서 지정해준다.
+
+**① 제네릭 타입 매개변수 / 타입 변수**
+
+-   <> (다이아몬드 연산자) 안에 식별자 기호를 지정하여 파라미터화한다.
+-   제네릭을 이용한 클래스나 메소드를 설계할 때 사용된다.
+-   생성자의 제네릭 타입 매개변수는 생략 가능하다.
+-   제네릭 타입 매개변수는 Reference 타입만 할당받을 수 있다.
+
+```
+class Box<T> {
+
+    List<T> items = new ArrayList<>();
+
+    public void add(T item) {
+        items.add(item);
+    }
+
+    public String toString() {
+
+        String itemString = "";
+        for (T item : items) {
+            itemString += item + " ";
+        }
+
+        return itemString;
+
+    }
+
+}
+
+class Car {
+
+    static String id;
+    static String name;
+
+    Car(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+}
+
+public class Generics {
+
+    public static void main(String[] args) {
+
+        Box<Integer> intBox = new Box<>();
+
+        Box<Float> floatBox = new Box<>();
+
+        Box<String> stringBox = new Box<>();
+
+        Box<Car> classBox = new Box<>();
+
+        intBox.add(1);
+        intBox.add(5);
+
+        System.out.println("intBox : " + intBox.toString());
+
+        floatBox.add(1.5f);
+        floatBox.add(5.5f);
+
+        System.out.println("floatBox : " + floatBox.toString());
+
+        stringBox.add("KIM");
+        stringBox.add("LEE");
+
+        System.out.println("stringBox : " + stringBox.toString());
+
+        classBox.add(new Car("1", "BMW"));
+        classBox.add(new Car("2", "JEEP"));
+
+        System.out.println("classBox : " + classBox.toString());
+
+    }
+
+}
+```
+
+-   복수 타입 파라미터
+
+```
+class Box<T, U> {
+
+    List<T> cars = new ArrayList<>();
+    List<U> persons = new ArrayList<>();
+
+    public void add(T car, U person) {
+        cars.add(car);
+        persons.add(person);
+    }
+
+}
+
+class Car {
+
+    static String id;
+    static String name;
+
+    Car(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+}
+
+class Person {
+
+    static String id;
+    static String name;
+
+    Person(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+}
+
+public class Generics {
+
+    public static void main(String[] args) {
+
+        Box<Car, Person> box = new Box<>();
+
+        box.add(new Car("1", "BMW"), new Person("KIM", "김"));
+
+    }
+
+}
+```
+
+-   중첩 타입 파라미터
+
+```
+List<Map<Integer, String>> list = new ArrayList<>();
+
+Map<Integer, String> map1 = new HashMap<>();
+map1.put(1, "A");
+map1.put(2, "B");
+
+Map<Integer, String> map2 = new HashMap<>();
+map2.put(1, "AA");
+map2.put(2, "BB");
+
+list.add(map1);
+list.add(map2);
+
+for (Map<Integer, String> map : list) {
+    System.out.println(map.get(1) + ", " + map.get(2));
+}
+```
+
+② 제네릭을 사용하는 이유
+
+-   컴파일 시 타입을 검사하여 예외를 미리 방지할 수 있다.
+-   불필요한 타입 캐스팅을 없애 성능을 향상시킬 수 있다.
+
+③ 제네릭 사용 시 주의사항
+
+-   제네릭 타입의 객체 생성은 불가능하다.
+-   static 멤버에 제네릭 타입이 올 수 없다.
+
+▷ 출처
+
+[https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%A0%9C%EB%84%A4%EB%A6%ADGenerics-%EA%B0%9C%EB%85%90-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%B3%B5%ED%95%98%EA%B8%B0](https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%A0%9C%EB%84%A4%EB%A6%ADGenerics-%EA%B0%9C%EB%85%90-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%B3%B5%ED%95%98%EA%B8%B0)
